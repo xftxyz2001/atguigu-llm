@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Kimi API配置</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #fff; margin: 0; padding: 24px; }
+    .form-group { margin-bottom: 16px; }
+    label { display: block; margin-bottom: 6px; color: #333; }
+    input { width: 100%; padding: 8px; border: 1px solid #E5E5E5; border-radius: 4px; font-size: 14px; }
+    button { background: #4A90E2; color: #fff; border: none; border-radius: 4px; padding: 8px 16px; font-size: 14px; cursor: pointer; }
+    button:hover { background: #357ABD; }
+    .msg { margin-top: 12px; color: #4A90E2; }
+  </style>
+</head>
+<body>
+  <h2>Kimi API配置</h2>
+  <div class="form-group">
+    <label for="api_url">API地址</label>
+    <input type="text" id="api_url" placeholder="请输入Kimi API地址">
+  </div>
+  <div class="form-group">
+    <label for="api_key">API Key</label>
+    <input type="text" id="api_key" placeholder="请输入Kimi API Key">
+  </div>
+  <button id="saveBtn">保存</button>
+  <div class="msg" id="msg"></div>
+  <script>
+    // 页面加载时，读取配置
+    document.addEventListener('DOMContentLoaded', () => {
+      chrome.storage.local.get(['kimi_config'], (result) => {
+        const config = result.kimi_config || {};
+        document.getElementById('api_url').value = config.api_url || '';
+        document.getElementById('api_key').value = config.api_key || '';
+      });
+    });
+    // 保存按钮点击事件
+    document.getElementById('saveBtn').onclick = function() {
+      const api_url = document.getElementById('api_url').value.trim();
+      const api_key = document.getElementById('api_key').value.trim();
+      chrome.storage.local.set({ kimi_config: { api_url, api_key } }, () => {
+        document.getElementById('msg').innerText = '保存成功！';
+      });
+    };
+  </script>
+</body>
+</html> 

@@ -1,0 +1,17 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: "团队前端项目规范"
+priority: 1000
+---
+
+# 代码风格
+1. 函数必须包含 JSDoc 注释
+2. 禁止使用 `var`，统一用 `const`/`let`
+3. 函数命名必须添加 zwf_前缀， 例如：zwf_login
+# 依赖管理
+- 优先使用项目内已有的工具函数（如 `utils/request`）
+- 禁止引入低版本的 lodash（<4.0.0）

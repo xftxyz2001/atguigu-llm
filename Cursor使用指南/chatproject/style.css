@@ -1,0 +1,91 @@
+/* 设置页面基本样式 */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* 游戏容器样式 */
+.game-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 分数板样式 */
+.score-board {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* 倒计时板样式 */
+.timer-board {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 游戏画布样式 */
+#gameCanvas {
+    border: 2px solid #333;
+    background-color: #fff;
+}
+
+/* 控制按钮容器样式 */
+.controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* 按钮样式 */
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#restartBtn {
+    background-color: #f44336;
+}
+
+#restartBtn:hover {
+    background-color: #da190b;
+}
+
+/* 添加模式选择按钮样式 */
+.mode-selection {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.mode-selection button {
+    margin: 5px;
+    background-color: #2196F3;
+}
+
+.mode-selection button:hover {
+    background-color: #1976D2;
+}
+
+.mode-selection button.active {
+    background-color: #1565C0;
+} 
