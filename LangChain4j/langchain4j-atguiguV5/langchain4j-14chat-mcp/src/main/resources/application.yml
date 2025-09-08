@@ -1,0 +1,27 @@
+server:
+  port: 9014
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  application:
+    name: langchain4j-14chat-mcp
+
+langchain4j:
+  community:
+    dashscope:
+      streaming-chat-model:
+        api-key: ${aliQwen-api}
+        model-name: qwen-plus
+      chat-model:
+        api-key: ${aliQwen-api}
+        model-name: qwen-plus
+
+# 只有日志级别调整为debug级别，同时配置以上 langchain 日志输出开关才有效
+logging:
+  level:
+    dev:
+      langchain4j: DEBUG
