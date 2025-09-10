@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>北京地铁美食导览</title>
+    <style>
+        body { font-family: 'Microsoft YaHei', sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .container { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .section { background: #f5f5f5; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h2 { color: #c00; border-bottom: 2px solid #c00; padding-bottom: 10px; }
+        .route-item, .food-item { margin: 15px 0; padding: 15px; background: white; border-radius: 4px; }
+        .route-item:hover, .food-item:hover { transform: translateY(-2px); transition: 0.3s; }
+        .highlight { background: #fff9e6; border-left: 4px solid #ffd700; }
+    </style>
+</head>
+<body>
+    <h1>🚇 北京经典一日游路线指南</h1>
+    
+    <div class="container">
+        <div class="section">
+            <h2>地铁换乘路线</h2>
+            <div id="subway-routes">
+                <!-- 地铁线路数据自动填充 -->
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>周边美食推荐</h2>
+            <div id="food-list">
+                <!-- 美食数据自动填充 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 地铁线路数据
+        const subwayData = [
+            { route: "北京站 → 天安门", duration: "26分钟", detail: "向西行的米左转，沿南池子大街南行155米右转..." },
+            { route: "天安门 → 颐和园", duration: "92分钟", detail: "沿普惠西街南行78米右转，沿翠微东二条西行202米右转..." },
+            { route: "颐和园 → 南锣鼓巷", duration: "67分钟", detail: "沿西华门大街西行279米右转，沿北长街北行837米右转..." }
+        ];
+
+        // 更新后的美食数据
+        const foodData = [
+            { location: "天安门区域", name: "全聚德烤鸭店", address: "东城区前门大街30号", distance: "0.5公里" },
+            { location: "颐和园区域", name: "听鹂馆饭庄", address: "海淀区颐和园内", distance: "0.1公里" },
+            { location: "颐和园区域", name: "云海肴云南菜(翠微印象城店)", address: "翠微路12号新华联商业大厦北京印象城(翠微店)4层", distance: "0.99公里" },
+            { location: "颐和园区域", name: "西塔老太太泥炉烤肉(翠微路印象城店)", address: "翠微路12号印象城翠微店F4层", distance: "0.99公里" },
+            { location: "颐和园区域", name: "米斯特比萨(海淀翠微店)", address: "翠微路12号印象城翠微店4层", distance: "0.99公里" },
+            { location: "南锣鼓巷区域", name: "文宇奶酪店", address: "东城区南锣鼓巷49号", distance: "0.05公里" },
+            { location: "南锣鼓巷区域", name: "皇家冰窖小院(什刹海店)", address: "恭俭胡同5巷5号", distance: "0.99公里" },
+            { location: "南锣鼓巷区域", name: "杭州小笼包", address: "米粮库胡同与恭俭胡同交叉口东20米", distance: "0.99公里" },
+            { location: "南锣鼓巷区域", name: "紫竹饭店", address: "景山西街与高卧胡同交叉口南100米", distance: "0.99公里" }
+        ];
+
+        // 动态生成内容
+        document.addEventListener('DOMContentLoaded', () => {
+            const routesContainer = document.getElementById('subway-routes');
+            subwayData.forEach(route => {
+                routesContainer.innerHTML += `
+                    <div class="route-item">
+                        <h3>${route.route}</h3>
+                        <p>🕒 时长：${route.duration}</p>
+                        <details>
+                            <summary>查看详细路线</summary>
+                            <p>${route.detail}</p>
+                        </details>
+                    </div>
+                `;
+            });
+
+            const foodContainer = document.getElementById('food-list');
+            foodData.forEach(food => {
+                foodContainer.innerHTML += `
+                    <div class="food-item">
+                        <h3>${food.name}</h3>
+                        <p>📍 ${food.location}</p>
+                        <p>🏠 地址：${food.address}</p>
+                        <p>🚶 距离：${food.distance}</p>
+                    </div>
+                `;
+            });
+
+            // 添加交互效果
+            document.querySelectorAll('.route-item, .food-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    document.querySelectorAll('.route-item, .food-item').forEach(el => el.classList.remove('highlight'));
+                    item.classList.add('highlight');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

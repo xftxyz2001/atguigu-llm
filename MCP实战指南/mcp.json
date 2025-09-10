@@ -1,0 +1,127 @@
+{
+  "mcpServers": {
+    "fs": {
+	"isActive": true,
+	"command": "cmd",
+	"args": [
+		"/c",
+		"npx",
+		"-y",
+		"@smithery/cli@latest",
+		"run",
+		"@bunasQ/fs",
+		"--key",
+		"8ce02901-a503-4520-8ebc-a2a362e93993"
+	  ],
+	  "name": "fs"
+       },
+    "mysqldb-mcp-server": {
+      "isActive": true,
+      "command": "uvx",
+      "args": [
+        "mysqldb-mcp-server"
+      ],
+      "env": {
+        "MYSQL_HOST": "localhost",
+        "MYSQL_USER": "root",
+        "MYSQL_PASSWORD": "123456",
+        "MYSQL_DATABASE": "company",
+        "MYSQL_READONLY": "false"
+      },
+      "name": "mysqldb-mcp-server"
+    },
+    "amap-maps": {
+      "isActive": true,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@amap/amap-maps-mcp-server"
+      ],
+      "env": {
+        "AMAP_MAPS_API_KEY": "e62ad882bd8922676d2aeabc0793730f"
+      },
+      "name": "amap-maps"
+    },
+    "firecrawl-mcp": {
+      "isActive": true,
+      "command": "npx",
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "fc-95f0188bcd0c487fb84f5fe4ee072518"
+      },
+      "name": "firecrawl-mcp"
+    },
+    "github": {
+      "isActive": true,
+      "name": "github",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+      }
+    },
+    "git": {
+      "isActive": true,
+      "command": "uvx",
+      "args": [
+        "mcp-server-git"
+      ],
+      "name": "git"
+    },
+    "memory": {
+      "isActive": true,
+      "name": "memory",
+      "description": "Follow these steps for each interaction:\n\n1. User Identification:\n   - You should assume that you are interacting with default_user\n   - If you have not identified default_user, proactively try to do so.\n\n2. Memory Retrieval:\n   - Always begin your chat by saying only \"Remembering...\" and retrieve all relevant information from your knowledge graph\n   - Always refer to your knowledge graph as your \"memory\"\n\n3. Memory\n   - While conversing with the user, be attentive to any new information that falls into these categories:\n     a) Basic Identity (age, gender, location, job title, education level, etc.)\n     b) Behaviors (interests, habits, etc.)\n     c) Preferences (communication style, preferred language, etc.)\n     d) Goals (goals, targets, aspirations, etc.)\n     e) Relationships (personal and professional relationships up to 3 degrees of separation)\n\n4. Memory Update:\n   - If any new information was gathered during the interaction, update your memory as follows:\n     a) Create entities for recurring organizations, people, and significant events\n     b) Connect them to the current entities using relations\n     b) Store facts about them as observations",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    },
+    "desktop-commander": {
+      "isActive": true,
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@wonderwhy-er/desktop-commander",
+        "--key",
+        "8f94f2ad-581e-452e-8335-ec87749ec05f"
+      ],
+      "name": "desktop-commander"
+    },
+    "duckduckgo-search": {
+      "isActive": true,
+      "command": "npx",
+      "args": [
+        "-y",
+        "duckduckgo-mcp-server"
+      ],
+      "name": "duckduckgo-search"
+    },
+    "slack": {
+      "isActive": true,
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-slack"
+      ],
+      "env": {
+        "SLACK_BOT_TOKEN": "xoxb-8742284449184-8713045060438-N7BP6eDIlS2HMKoD4437LDlt",
+        "SLACK_TEAM_ID": "T08MU8CD75E"
+      },
+      "name": "slack"
+    }
+  }
+}
